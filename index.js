@@ -3,15 +3,22 @@ var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
 
 module.export = function(file, opt) {
+  var total = 0;
+
+	function bufferContents(file, enc, cb) {
+    var wordCount = 0;
+
+    if(file.isBuffer()) {
 
 
-	function bufferContents(file) {
-
+      total += wordCount;
+    }
 	}
 
 	function endStream() {
-    this.emit('data');
+    console.log(total);
 
+    this.emit('data', total);
 		this.emit('end');
 	}
 

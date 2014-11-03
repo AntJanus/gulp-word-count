@@ -1,0 +1,32 @@
+{
+  "name": "gulp-word-count",
+  "version": "0.0.1",
+  "description": "A wordcount gulp utility",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-util": "^3.0.1",
+    "through2": "^0.6.3",
+    "wordcount": "^0.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "karma run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AntJanus/gulp-word-count.git"
+  },
+  "keywords": [
+    "gulp",
+    "wordcount",
+    "wc",
+    "nanowrimo",
+    "markdown"
+  ],
+  "author": "Antonin Januska",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AntJanus/gulp-word-count/issues"
+  },
+  "homepage": "https://github.com/AntJanus/gulp-word-count"
+}

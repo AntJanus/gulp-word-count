@@ -18,3 +18,12 @@ gulp.task('wordcount', function() {
 
 });
 ````
+
+### Todo
+
+New options to implement:
+
+* instead of just "file name", allow more option
+* allow for console.logging wordcount and pushing through files
+* allow for saving a file outside of the stream (sounds a little out of scope).
+* allow for "minimum" wordcount requirement, colorize failure and colorize achievement

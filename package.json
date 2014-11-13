@@ -25,8 +25,7 @@
     "gulp",
     "wordcount",
     "wc",
-    "nanowrimo",
-    "markdown"
+    "nanowrimo"
   ],
   "author": "Antonin Januska",
   "license": "MIT",

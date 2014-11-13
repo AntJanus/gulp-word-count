@@ -13,8 +13,8 @@ gulp.task('wordcount', function() {
   var datetime = [today.getDate(), today.getMonth() + 1, today.getFullYear()].join('_');
 
   return gulp.src('./book/**/*.md')
-    .pipe(wc())
-    .pipe(gulp.dest('./logs/wc'+datetime+'.log');
+    .pipe(wc('wc_'+datetime+'.log'))
+    .pipe(gulp.dest('./logs/');
 
 });
 ````

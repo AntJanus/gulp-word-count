@@ -2,42 +2,44 @@ var through     = require('through2');
 var gutil       = require('gulp-util');
 var wc          = require('wordcount');
 var PluginError = gutil.PluginError;
+var File        = gutil.File;
+var path        = require('path');
 
-module.export = function(file, opt) {
+module.exports = function(countName) {
   var total = 0;
   var firstFile;
 
 	function bufferContents(file, enc, cb) {
     var wordCount = 0;
 
-    if(file.isBuffer()) {
-      if (!firstFile) firstFile = file;
+    if (file.isNull()) return;
+    if (file.isStream()) return this.emit('error', new PluginError('gulp-wordcount', 'Streaming not supported'));
 
-      wordcount = wc(string(file.contents));
+    if(!firstFile) firstFile = file;
 
-      total += wordCount;
-    }
+    wordCount = wc(file.contents.toString());
+
+    total += wordCount;
+    cb();
 	}
 
-	function endStream() {
+	function endStream(cb) {
 
      if (firstFile) {
-      var joinedFile = firstFile;
 
-      if (typeof file === 'string') {
-        joinedFile = firstFile.clone({contents: false});
-        joinedFile.path = path.join(firstFile.base, file);
-      }
+      var joinedFile = new File({
+        base: firstFile.base,
+        cwd: firstFile.cwd,
+        path: path.join(firstFile.base, countName),
+        contents: new Buffer(total.toString())
+      });
 
-      joinedFile.contents = new Buffer(total);
-
-      this.emit('data', joinedFile);
+      this.push(joinedFile);
+      return cb();
     }
 
-   console.log(total);
-
-		this.emit('end');
+     return cb();
 	}
 
-  return through(bufferContents, endStream);
+  return through.obj(bufferContents, endStream);
 };

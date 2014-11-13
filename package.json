@@ -8,9 +8,14 @@
     "through2": "^0.6.3",
     "wordcount": "^0.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "mocha": "^2.0.1",
+    "should": "^4.3.0",
+    "stream-assert": "^2.0.2"
+  },
   "scripts": {
-    "test": "karma run"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

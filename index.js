@@ -46,7 +46,7 @@ module.exports = function(options) {
 
   options = processOptions(options);
 
-	function bufferContents(file, enc, cb) {
+  function bufferContents(file, enc, cb) {
     var wordCount = 0;
 
     if (file.isNull()) return;
@@ -58,9 +58,9 @@ module.exports = function(options) {
 
     total += wordCount;
     cb();
-	}
+  }
 
-	function endStream(cb) {
+  function endStream(cb) {
 
     useOptions(options, total);
 
@@ -77,7 +77,7 @@ module.exports = function(options) {
     }
 
      return cb();
-	}
+  }
 
   return through.obj(bufferContents, endStream);
 };

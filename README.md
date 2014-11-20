@@ -27,3 +27,16 @@ New options to implement:
 * allow for console.logging wordcount and pushing through files
 * allow for saving a file outside of the stream (sounds a little out of scope).
 * allow for "minimum" wordcount requirement, colorize failure and colorize achievement
+
+
+### Options
+
+````
+{
+  file: 'filename',
+  nanoMode: true, // for nano
+  campNano: true, // for campnano
+  start: 0, // wordcount start
+  goal: 100000, // wordcount monthly goal
+}
+````

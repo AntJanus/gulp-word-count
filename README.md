@@ -19,32 +19,6 @@ gulp.task('wordcount', function() {
 });
 ````
 
-### NaNo Mode
-
-I developed this plugin as a way to keep track of my NaNoWriMo progress. Here are the options to run a basic NaNo mode.
-
-````js
-var wc = require('gulp-word-count');
-
-
-gulp.task('wordcount', function() {
-
-  return gulp.src('./book/**/*.md')
-    .pipe(wc({
-      naNoMode: true
-    }))
-    .pipe(gulp.dest('./logs/');
-
-});
-````
-
-What NaNo mode does:
-
-1. automatically preconfigures log names to be `nano-[date].log`
-2. checks your total word requirement for the day
-3. checks if you fulfilled that requirement
-4. console logs out the result.
-
 ### Todo
 
 New options to implement:
@@ -53,3 +27,16 @@ New options to implement:
 * allow for console.logging wordcount and pushing through files
 * allow for saving a file outside of the stream (sounds a little out of scope).
 * allow for "minimum" wordcount requirement, colorize failure and colorize achievement
+
+
+### Options
+
+````
+{
+  file: 'filename',
+  nanoMode: true, // for nano
+  campNano: true, // for campnano
+  start: 0, // wordcount start
+  goal: 100000, // wordcount monthly goal
+}
+````

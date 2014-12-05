@@ -13,7 +13,7 @@ describe('gulp-word-count', function() {
   describe('wordcount()', function() {
     it('should count words in one file', function(done) {
         gulp.src(fixtures('*'))
-          .pipe(wc('test_name.log'))
+          .pipe(wc({ file: 'test_name.log'}))
           .on('error', function(e) {
             console.log(e);
           })
@@ -22,12 +22,45 @@ describe('gulp-word-count', function() {
     });
     it('should store wordcount in a new file', function(done) {
         gulp.src(fixtures('*'))
-          .pipe(wc('test_name.log'))
+          .pipe(wc({ file: 'test_name.log'}))
           .on('error', function(e) {
             console.log(e);
           })
           .pipe(assert.first(function(d) { d.relative.should.eql('test_name.log'); }))
           .pipe(assert.end(done));
+    });
+    it('should use NaNo name for NaNo mode', function(done) {
+      var today = new Date();
+      var datetime = [today.getMonth() + 1, today.getDate(), today.getFullYear()].join('_');
+      gulp.src(fixtures('*'))
+        .pipe(wc({ nanoMode: true }))
+        .on('error', function(e) {
+          console.log(e);
+        })
+        .pipe(assert.first(function(d) { d.relative.should.eql('nano-' + datetime + '.log'); }))
+        .pipe(assert.end(done));
+    });
+    it('should use CampNaNo name for CampNaNo mode', function(done) {
+      var today = new Date();
+      var datetime = [today.getMonth() + 1, today.getDate(), today.getFullYear()].join('_');
+      gulp.src(fixtures('*'))
+        .pipe(wc({ campNano: true }))
+        .on('error', function(e) {
+          console.log(e);
+        })
+        .pipe(assert.first(function(d) { d.relative.should.eql('camp-' + datetime + '.log'); }))
+        .pipe(assert.end(done));
+    });
+    it('should give a success message ', function(done) {
+      var today = new Date();
+      var datetime = [today.getMonth() + 1, today.getDate(), today.getFullYear()].join('_');
+      gulp.src(fixtures('*'))
+        .pipe(wc({ campNano: true, goal: 50 }))
+        .on('error', function(e) {
+          console.log(e);
+        })
+        .pipe(assert.first(function(d) { d.relative.should.eql('camp-' + datetime + '.log'); }))
+        .pipe(assert.end(done));
     });
   });
 

@@ -1,6 +1,6 @@
 {
   "name": "gulp-word-count",
-  "version": "0.2",
+  "version": "0.2.0",
   "description": "A wordcount gulp utility",
   "main": "index.js",
   "dependencies": {

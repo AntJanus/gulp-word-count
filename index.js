@@ -5,9 +5,13 @@ var PluginError = gutil.PluginError;
 var File        = gutil.File;
 var path        = require('path');
 
-module.exports = function(countName) {
+module.exports = function(logName) {
   var total = 0;
   var firstFile;
+
+  if(typeof logName === 'Object') {
+
+  }
 
 	function bufferContents(file, enc, cb) {
     var wordCount = 0;
@@ -30,7 +34,7 @@ module.exports = function(countName) {
       var joinedFile = new File({
         base: firstFile.base,
         cwd: firstFile.cwd,
-        path: path.join(firstFile.base, countName),
+        path: path.join(firstFile.base, logName),
         contents: new Buffer(total.toString())
       });
 

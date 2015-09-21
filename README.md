@@ -29,7 +29,7 @@ New options to implement:
 
 ### Options
 
-````
+```js
 {
   file: 'filename',
   nanoMode: true, // for nano
@@ -37,4 +37,4 @@ New options to implement:
   start: 0, // wordcount start
   goal: 100000, // wordcount monthly goal
 }
-````
+```

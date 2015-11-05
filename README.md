@@ -14,7 +14,7 @@ gulp.task('wordcount', function() {
   var datetime = [today.getDate(), today.getMonth() + 1, today.getFullYear()].join('_');
 
   return gulp.src('./book/**/*.md')
-    .pipe(wc('wc_'+datetime+'.log'))
+    .pipe(wc({ file: 'wc_'+datetime+'.log' }))
     .pipe(gulp.dest('./logs/');
 
 });

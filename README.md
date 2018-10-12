@@ -1,9 +1,8 @@
-[![Stories in Ready](https://badge.waffle.io/AntJanus/gulp-word-count.png?label=ready&title=Ready)](https://waffle.io/AntJanus/gulp-word-count)
-##Gulp Word Count
+## Gulp Word Count
 
 Gulp plugin for wordcount.
 
-###Usage
+### Usage
 
 ````js
 var wc = require('gulp-word-count');
